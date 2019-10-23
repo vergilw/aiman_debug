@@ -25,15 +25,29 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import HttpProvider from './HttpProvider.js';
+const axios = require('axios');
 
 const App: () => React$Node = () => {
 
-  //debug code
+  //debug aiman lib
   global.httpProvider = new HttpProvider('https://testnet.matrix.io');
   global.httpProvider.man.getBalance('MAN.35dDuaK7Pb42338pXq5a6shtsTDoZ', (error, result) => {
     console.log(error);
     console.log(result);
   });
+
+  //debug rpc with axios 
+  // axios({
+  //   method: 'post',
+  //   url: 'https://testnet.matrix.io',
+  //   data: { "jsonrpc": "2.0", "method": "man_getBalance", "params": ["MAN.35dDuaK7Pb42338pXq5a6shtsTDoZ", "latest"], "id": 1 }
+  // })
+  //   .then((response) => {
+  //     console.log(response);
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //   });
 
   return (
     <>
